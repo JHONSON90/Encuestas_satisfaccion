@@ -5,6 +5,11 @@ import traceback
 import time
 import pandas as pd
 
+st.set_page_config(page_title="One - Encuestas", 
+    page_icon=":one:", 
+    layout="wide"
+    )
+
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 
@@ -23,7 +28,7 @@ except Exception as e:
     time.sleep(2)
     placeholder.empty()
 
-@st.dialog("Agregar Encuestas")
+@st.dialog("Agregar Encuestas", width="medium")
 def agregar_encuesta():
     Nombre = st.text_input("Nombres y Apellidos")
     Telefono = st.number_input("Telefono")
@@ -130,7 +135,7 @@ def agregar_encuesta():
         time.sleep(2)
         st.rerun()
 
-if st.button("Encuesta de Empopasto"):
+if st.button("Encuesta de Empopasto", type="primary"):
     agregar_encuesta()
 
 col1, col2 = st.columns(2)
