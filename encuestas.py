@@ -35,8 +35,8 @@ else:
     st.sidebar.header(f"Bienvenido, {st.user.name}!")
     st.sidebar.button("Cerrar sesión", on_click=st.logout)
 
-    gastos = st.Page("pages/formulario.py", title="Ingreso de Encuestas")
-    solo_lectura = st.Page("pages/solo_lectura_info.py", title="Solo Lectura")
+    gastos = st.Page(["pages/formulario.py", "pages/solo_lectura_info.py"], title="Analisis de encuestas")
+    solo_lectura = st.Page("pages/formulario.py", title="Ingreso de Encuestas")
 
     admon_pages = [gastos, solo_lectura]
     user_pages = [solo_lectura]
