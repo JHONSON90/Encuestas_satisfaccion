@@ -17,32 +17,56 @@ def login_screen():
     st.subheader("Por favor, inicia sesión.")
     st.button("Log in with Google", on_click=st.login)
 
-if not st.user.is_logged_in:
+def logout():
+    st.button("Cerrar sesión", on_click=st.logout)
+
+login_page = st.Page(login_screen, title="Login", icon=":material/login:")
+logout_page = st.Page(logout, title="Logout", icon=":material/logout:")
+
+gastos = st.Page(["pages/formulario.py", "pages/solo_lectura_info.py"], title="Analisis de encuestas")
+solo_lectura = st.Page("pages/formulario.py", title="Ingreso de Encuestas")
+
+
+if st.user.is_logged_in:
+    if st.user.email in ADMIN_EMAILS:
+        st.sidebar.header(f"Bienvenido, {st.user.name}!")
+        st.sidebar.button("Cerrar sesión", on_click=st.logout)
+        logout_page = st.Page(logout, title="Logout", icon=":material/logout:")
+        pages = [gastos, logout_page]
+    else:
+        st.sidebar.header(f"Bienvenido, {st.user.name}!")
+        st.sidebar.button("Cerrar sesión", on_click=st.logout)
+        logout_page = st.Page(logout, title="Logout", icon=":material/logout:")
+        pages = [solo_lectura, logout_page]
+    pg = st.navigation(pages)
+else:
+    pg = st.navigation([login_page])
+
     #pg = st.navigation([st.Page(login_screen)])
     # with st.form("login_form", border=True):
     #     st.header("Ingreso de Encuestas")
     #     submitted = st.form_submit_button("Iniciar Sesión", on_click=st.login)
     #     st.stop()
-    login_screen()
-    st.stop()
+#     login_screen()
+#     st.stop()
 
-else:
-    if st.user.email in ADMIN_EMAILS:
-        st.session_state.role = "admin"
-    else:
-        st.session_state.role = "user"
+# else:
+#     if st.user.email in ADMIN_EMAILS:
+#         st.session_state.role = "admin"
+#     else:
+#         st.session_state.role = "user"
 
-    st.sidebar.header(f"Bienvenido, {st.user.name}!")
-    st.sidebar.button("Cerrar sesión", on_click=st.logout)
+#     st.sidebar.header(f"Bienvenido, {st.user.name}!")
+#     st.sidebar.button("Cerrar sesión", on_click=st.logout)
 
-    gastos = st.Page(["pages/formulario.py", "pages/solo_lectura_info.py"], title="Analisis de encuestas")
-    solo_lectura = st.Page("pages/formulario.py", title="Ingreso de Encuestas")
+#     gastos = st.Page(["pages/formulario.py", "pages/solo_lectura_info.py"], title="Analisis de encuestas")
+#     solo_lectura = st.Page("pages/formulario.py", title="Ingreso de Encuestas")
 
-    admon_pages = [gastos, solo_lectura]
-    user_pages = [solo_lectura]
+#     admon_pages = [gastos, solo_lectura]
+#     user_pages = [solo_lectura]
 
-    page_dict = admon_pages if st.session_state.role == "admin" else user_pages
-    pg = st.navigation(page_dict)
+#     page_dict = admon_pages if st.session_state.role == "admin" else user_pages
+#     pg = st.navigation(page_dict)
 
 pg.run()
 
