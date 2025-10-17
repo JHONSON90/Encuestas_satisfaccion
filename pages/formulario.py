@@ -74,7 +74,7 @@ def agregar_encuesta():
     pregunta20 = st.radio("20 ¿Cómo califica usted las actividades que realiza Empopasto de carácter social y ambiental, que benefician y mejoran la calidad de vida de la comunidad?", [0,5,4,3,2,1], horizontal=True)
     pregunta21 = st.radio("21 ¿Cómo considera usted la gestión actual de EMPOPASTO?", [0,5,4,3,2,1], horizontal=True)
     pregunta22 = st.text_input("22 Que sugerencias tiene para Empopasto")
-    pregunta23 = st.radio("23 Encuestadora", ["Leni Valentina Patiño", "Daniela Alexandra Flórez Muñoz", "Daniela Sofia Coral Escobar", "Maritza Patiño", "Amalia Coral", "Monica Patiño", "Leidy Ximena Lasso", "Luisa María Arteaga Lasso", "Edison Portilla Luna", "Milena"],horizontal=True)
+    pregunta23 = st.radio("23 Encuestadora", ["Leni Valentina Patiño", "Daniela Alexandra Flórez Muñoz", "Daniela Sofia Coral Escobar", "Maritza Patiño", "Amalia Coral", "Monica Patiño", "Leidy Ximena Lasso", "Luisa María Arteaga Lasso", "Edison Portilla Luna", "Milena Lucero"],horizontal=True)
 
     if st.button("Agregar Respuestas"):
         df = conn.read(worksheet="EmpoPasto", ttl=0)
