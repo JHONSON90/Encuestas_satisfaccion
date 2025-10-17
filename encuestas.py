@@ -23,7 +23,7 @@ def logout():
 login_page = st.Page(login_screen, title="Login", icon=":material/login:")
 logout_page = st.Page(logout, title="Logout", icon=":material/logout:")
 
-gastos = st.Page(["pages/formulario.py", "pages/solo_lectura_info.py"], title="Analisis de encuestas")
+gastos = st.Page("pages/formulario.py", title="Analisis de encuestas")
 solo_lectura = st.Page("pages/formulario.py", title="Ingreso de Encuestas")
 
 

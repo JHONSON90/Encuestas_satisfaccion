@@ -86,6 +86,7 @@ def agregar_encuesta():
             'Estrato': [Estrato],
             'Fecha': [Fecha],
             'Codigo': [Codigo],
+            "Tipo": [Tipo],
             'Edad': [Edad],
             'pregunta1': [pregunta1],
             'pregunta2': [pregunta2],
