@@ -141,5 +141,10 @@ col1.metric("Total Encuestas", len(df), border=True)
 col2.metric("Encuestas Restantes", 600 - len(df), border=True)
 
 encuestadores = df.groupby("pregunta23")["Nombre"].count()
+encuestados = df.groupby("Nombre")["pregunta23"].count()
 
-st.write(encuestadores)
+col3, col4 = st.columns(2)
+col1.write(encuestadores)
+col2.write(encuestados)
+
+st.dataframe(df)
