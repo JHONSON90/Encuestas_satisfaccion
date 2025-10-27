@@ -144,7 +144,9 @@ encuestadores = df.groupby("pregunta23")["Nombre"].count()
 encuestados = df.groupby("Nombre")["pregunta23"].count()
 
 col3, col4 = st.columns(2)
-col1.write(encuestadores)
-col2.write(encuestados)
-
-st.dataframe(df)
+with col3:
+    st.subheader("Encuestadores")
+    col1.write(encuestadores)
+with col4:
+    st.subheader("Encuestados")
+    col2.write(encuestados)
