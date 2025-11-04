@@ -220,11 +220,15 @@ col2.metric("Encuestas Restantes", 600 - len(df), border=True)
 
 encuestadores = df.groupby("pregunta23")["Nombre"].count()
 encuestados = df.groupby("Nombre")["pregunta23"].count()
+encuestasxbarrioyestrato = df.groupby(["Barrio", "Estrato"]).size()
 
-col3, col4 = st.columns(2)
+col3, col4, col5 = st.columns(3)
 with col3:
     st.subheader("Encuestadores")
     st.write(encuestadores)
 with col4:
     st.subheader("Encuestados")
     st.write(encuestados)
+with col5:
+    st.subheader("Encuestas por Barrio y Estrato")
+    st.write(encuestasxbarrioyestrato)
