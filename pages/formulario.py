@@ -232,3 +232,6 @@ with col4:
 with col5:
     st.subheader("Encuestas por Barrio y Estrato")
     st.write(encuestasxbarrioyestrato)
+
+st.subheader("Seguimiento por estrato")
+st.write(df.groupby("Estrato").size())
