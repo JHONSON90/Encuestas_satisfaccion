@@ -116,7 +116,7 @@ def agregar_encuesta():
 
     st.radio("1 ¿Usted considera que el tiempo de entrega de su factura, hasta la fecha límite de pago de la misma, es adecuado?", [0,5,4,3,2,1], horizontal=True, key='pregunta1', index=0)
     st.radio("2 ¿Cómo califica la información contenida en la factura de pago en términos de facilidad para comprenderla?", [0,5,4,3,2,1], horizontal=True, key='pregunta2', index=0)
-    st.text_input("2.1 Si la respuesta es 1 o 2 Especifique su razón principal:", key='pregunta2_1', index=0)
+    st.text_input("2.1 Si la respuesta es 1 o 2 Especifique su razón principal:", key='pregunta2_1')
     st.radio("3 ¿Conoce los sitios de pago de su factura?", ["SI", "NO"],horizontal=True, key='pregunta3', index=0)
     st.text("4 La atención que Usted recibe en nuestros puntos, ha sido:")
     st.radio("4.1 Amable", [0,5,4,3,2,1], horizontal=True, key='pregunta4_1', index=0)
